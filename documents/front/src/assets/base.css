@@ -1,0 +1,15 @@
+.pdf-app.light {
+  --pdf-app-background-color: white !important;
+}
+
+.doorHanger,
+.pdf-app .doorHangerRight {
+  border: none !important;
+  border-radius: 2px;
+  box-shadow: none !important;
+}
+.pdf-app {
+  padding-bottom: 1px;
+  box-shadow: inset 0 0 2px #aeaeae;
+  border-radius: 5px;
+}

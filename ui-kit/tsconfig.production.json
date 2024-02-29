@@ -1,0 +1,37 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "lib/**/*", "lib/**/*.vue"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./lib/*"]
+    },
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "declaration": true
+  },
+  "exclude": [
+    "node_modules",
+    "public",
+    "public/**",
+    "typings/browser.d.ts",
+    "typings/browser/**"
+  ],
+
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

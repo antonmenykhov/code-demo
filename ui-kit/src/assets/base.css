@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --tnnc-color-orange: #ffd200;
+  /* --tnnc-color-orange: #e9e30a; */
+  --tnnc-color-blue: #5a45ec;
+  --tnnc-color-gray-standart: #e1e9f1;
+  --tnnc-color-gray-light: #eff5fb;
+  --tnnc-color-black: #182233;
+  --tnnc-color-red: #fd4e5d;
+  --tnnc-add-color-gray-1: #374151;
+  --tnnc-add-color-gray-2: #495667;
+  --tnnc-add-color-gray-3: #7c90a4;
+  --tnnc-add-color-gray-4: #cfd9e3;
+  --color-white-contrast: #fff;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--tnnc-color-gray-light);
+  --color-border: var(--tnnc-add-color-gray-4);
+  --color-border-hover: var(--vt-c-divider-light-1);
+  --color-heading: var(--tnnc-color-black);
+  --color-text: var(--tnnc-color-black);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-weight: normal;
+  text-decoration: none;
+}
+body * {
+  scrollbar-color: var(--tnnc-color-blue) var(--tnnc-color-gray-standart);
+  scrollbar-width: thin;
+}
+body *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body *::-webkit-scrollbar-track {
+  background-color: var(--tnnc-color-gray-standart);
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.05);
+}
+
+body *::-webkit-scrollbar-thumb {
+  background-color: var(--tnnc-color-blue);
+  border-radius: 5px;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1;
+  font-family: Ubuntu, sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

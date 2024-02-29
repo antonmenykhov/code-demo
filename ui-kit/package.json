@@ -1,0 +1,85 @@
+{
+  "name": "@tnnc/tnnc-ui-kit",
+  "version": "0.1.4",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/tnnc-ui-kit.umd.cjs",
+  "module": "./dist/tnnc-ui-kit.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/tnnc-ui-kit.js",
+      "require": "./dist/tnnc-ui-kit.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "build-lib": "vite build && vue-tsc --emitDeclarationOnly",
+    "prebuild-lib": "node ./build-scripts/pre",
+    "postbuild-lib": "node ./build-scripts/post && yarn pack",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@maskito/core": "^1.5.0",
+    "@maskito/kit": "^1.5.0",
+    "@maskito/vue": "^1.5.0",
+    "@vueuse/core": "^9.12.0",
+    "exceljs": "^4.3.0",
+    "file-saver-es": "^2.0.5",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
+  "peerDependencies": {
+    "@maskito/core": "^1.5.0",
+    "@maskito/kit": "^1.5.0",
+    "@maskito/vue": "^1.5.0",
+    "@vueuse/core": "^9.12.0",
+    "exceljs": "^4.3.0",
+    "file-saver-es": "^2.0.5",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@storybook/addon-essentials": "^7.0.25",
+    "@storybook/addon-interactions": "^7.0.25",
+    "@storybook/addon-links": "^7.0.25",
+    "@storybook/blocks": "^7.0.25",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.25",
+    "@storybook/vue3-vite": "^7.0.25",
+    "@types/node": "^18.11.12",
+    "@types/uuid": "^9.0.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "eslint-plugin-vue": "^9.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.25",
+    "typescript": "~4.7.4",
+    "vite": "^4.0.0",
+    "vue-tsc": "^1.0.12"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}

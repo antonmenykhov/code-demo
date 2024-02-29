@@ -1,0 +1,440 @@
+import { Meta, Title, Primary, Controls, Stories } from '@storybook/blocks';
+
+<Meta isTemplate />
+
+<Title />
+<Primary />
+<Controls />
+
+## Свойства, доступные через ref
+
+<table style={{ width: '100%', textAlign: 'left' }}>
+<tbody>
+  <tr>
+    <th>Название свойства</th>
+    <th>Описание свойства</th>
+    <th>Тип возвращаемого значения</th>
+  </tr>
+  <tr>
+    <td>expandedRows</td>
+    <td>Список идентификаторов выделенных строк</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>renderedColumnsIds</td>
+    <td>Список идентификаторов отображаемых столбцов</td>
+    <td>\<string[]\></td>
+  </tr>
+  <tr>
+    <td>masterDetailOpened</td>
+    <td>Список идентификаторов строк для которых развернут masterDetail</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>fixedColumnIds</td>
+    <td>Список идентификаторов зафиксированных столбцов</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>collapsedColumnsIds</td>
+    <td>Список идентификаторов столбцов, чайлды которых свёрнуты</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>groupedColumnIds</td>
+    <td>Список идентификаторов столбцов по которым происходит группировка</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>selectedRowsIds</td>
+    <td>Список идентификаторов строк отмеченных при allowSelection</td>
+    <td>Set\<string\></td>
+  </tr>
+  <tr>
+    <td>tableColumnsTree</td>
+    <td>Древовидная структура столбцов в таблице</td>
+    <td>TableColumn[]</td>
+  </tr>
+  <tr>
+    <td>editingRowIds</td>
+    <td>Список идентификаторов строк, открытых на редактирование</td>
+    <td>Set\<string\></td>
+  </tr>
+   <tr>
+    <td>expandedGroupNames</td>
+    <td>Список названий групп. Если groupRowsDefaultStateOpened=true - то хранит названия свернутых групп, если groupRowsDefaultStateOpened=false - то хранит название развернутых групп</td>
+    <td>Set\<string\></td>
+  </tr>
+   <tr>
+    <td>currentPage</td>
+    <td>Номер текущей страницы</td>
+    <td>number</td>
+  </tr>
+   <tr>
+    <td>pageSize</td>
+    <td>Максимальное кол-во строк на странице</td>
+    <td>number</td>
+  </tr>
+   <tr>
+    <td>maxPage</td>
+    <td>Кол-во страниц в таблице</td>
+    <td>number</td>
+  </tr>
+   <tr>
+    <td>currentFilter</td>
+    <td>Текущее значение фильтра</td>
+    <td> \{ <br/>
+  columnName: string;  <br/>
+  filterType: 'equals' | 'between' | 'gt' | 'lt';  <br/>
+  filterSet: Set\<string | number\>;  <br/>
+\}[]</td>
+  </tr>
+   <tr>
+    <td>filteredRows</td>
+    <td>Строки с учетом фильтрации</td>
+    <td>\<unknown\>[]</td>
+  </tr>
+  <tr>
+    <td>tableSettings</td>
+    <td>Все восстанавливаемые настройки таблицы </td>
+    <td>
+    ```
+    {
+  renderedColumnsIds: string[];
+  collapsedColumnsIds: string[];
+  fixedColumnIds: string[];
+  customColumnWidths: {
+    columnId: string;
+    width: number;
+  }[];
+  groupedColumnIds: string[];
+  expandedGroupNames: string[];
+  currentPage: number;
+  pageSize: number;
+  expandedRows: string[];
+  masterDetailOpened: string[];
+  editingRowIds: string[];
+  selectedRowsIds: string[];
+  currentFilter: Array<{
+    filterSet: Array<string | number>;
+    columnName: string;
+    filterType: FilterType;
+  }>;
+  sortedColumns: {
+    columnName: string;
+    direction: 'asc' | 'desc';
+  }[];
+};
+    ```
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+## Методы, доступные через ref
+
+<table style={{ width: '100%', textAlign: 'left' }}>
+  <tbody>
+    <tr>
+      <th>Название метода</th>
+      <th>Описание метода</th>
+      <th>Принимаемые=\>Возвращаемые значения</th>
+    </tr>
+    <tr>
+      <td>toggleExpandingRow</td>
+      <td>Переключить выделение строки с указанным id</td>
+      <td>```(rowId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleMasterDetail</td>
+      <td>Переключить состояние masterDetail указанной строки</td>
+      <td>```(rowId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleCollapsed</td>
+      <td>Переключить сворачивание чайлдов указанного столбца</td>
+      <td>```(columnId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleFixed</td>
+      <td>Переключить фиксацию указанного столбца</td>
+      <td>``` (columnId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleFixedGroup</td>
+      <td>
+        Переключить фиксацию группы столбцов с начала до указанного столбца
+      </td>
+      <td>```(columnId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>getColumnWidth</td>
+      <td>Получить ширину указанного столбца</td>
+      <td>```(id: string, defaultWidth: number) => number```</td>
+    </tr>
+    <tr>
+      <td>setColumnWidth</td>
+      <td>Задать ширину для указанного столбца</td>
+      <td>```(id: string, width: number) => void```</td>
+    </tr>
+    <tr>
+      <td>hideColumn</td>
+      <td>Скрыть указанный столбец</td>
+      <td>```(columnId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleGrouping</td>
+      <td>Переключить группировку по указанному столбцу</td>
+      <td>```(columnId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>ungroupAll</td>
+      <td>Разгруппировать все</td>
+      <td>```() => void```</td>
+    </tr>
+    <tr>
+      <td>toggleSelection</td>
+      <td>Отметить\снять выделение строки с указанным id при allowSelection</td>
+      <td>```(rowId: string) => void```</td>
+    </tr>
+    <tr>
+      <td>saveAllRows</td>
+      <td>
+        Закрыть редактирование у всех строк, кроме тех которые переданы в
+        аргумент
+      </td>
+      <td>```(excludeList?: string[] | undefined) => void```</td>
+    </tr>
+    <tr>
+      <td>toggleExpandedGroupNames</td>
+      <td>Свернуть\развернуть указанную группу</td>
+      <td>```(groupName: string) => void```</td>
+    </tr>
+    <tr>
+      <td>setSorting</td>
+      <td>Установить сортировку для указанного столбца</td>
+      <td>```(columnName: string, direction: "asc" | "desc") => void```</td>
+    </tr>
+    <tr>
+      <td>removeSorting</td>
+      <td>Убрать сортировку у указанного столбца</td>
+      <td>```(columnName: string) => void```</td>
+    </tr>
+    <tr>
+      <td>startEditing</td>
+      <td>
+        Открыть указанную строку на редактирование. На вход передавать объект
+        строки с id привиденном к строке
+      </td>
+      <td>```(rowData: any) => void```</td>
+    </tr>
+    <tr>
+      <td>stopEditing</td>
+      <td>
+        Завершить редактирование указанной строки через отмену. На вход
+        передавать объект строки с id привиденном к строке
+      </td>
+      <td>```(rowData: any) => void```</td>
+    </tr>
+    <tr>
+      <td>saveRow</td>
+      <td>
+        Завершить редактирование указанной строки через сохранение. На вход
+        передавать объект строки с id привиденном к строке
+      </td>
+      <td>```(rowData: any, diff: any) => void```</td>
+    </tr>
+    <tr>
+      <td>deleteRow</td>
+      <td>
+        Удалить указанную строку. На вход передавать объект строки с id
+        привиденном к строке.
+      </td>
+      <td>```(rowData: any) => void```</td>
+    </tr>
+    <tr>
+      <td>clearFilter</td>
+      <td>Очистить фильтр в таблице</td>
+      <td>```() => void```</td>
+    </tr>
+    <tr>
+      <td>setSettings</td>
+      <td>Задать настройки таблицы</td>
+      <td> 
+```
+(settings: {
+  renderedColumnsIds?: string[];
+  collapsedColumnsIds?: string[];
+  fixedColumnIds?: string[];
+  customColumnWidths?: {
+    columnId: string;
+    width: number;
+  }[];
+  groupedColumnIds?: string[];
+  expandedGroupNames?: string[];
+  currentPage?: number;
+  pageSize?: number;
+  expandedRows?: string[];
+  masterDetailOpened?: string[];
+  editingRowIds?: string[];
+  selectedRowsIds?: string[];
+  currentFilter?: Array<{
+    filterSet: Array<string | number>;
+    columnName: string;
+    filterType: FilterType;
+  }>;
+  sortedColumns?: {
+    columnName: string;
+    direction: 'asc' | 'desc';
+  }[];
+}) => void
+    ```
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+## Тип колонки
+
+```js
+export interface Column<
+  HandbookType extends Handbook = any,
+  RowDataType = any,
+  MetaType = any,
+> {
+  caption: string;                                            // видимое название столбца
+  name: string;                                               // название поля строки, или любое уникальное значение
+  child?: Column<HandbookType, RowDataType, MetaType>[];      // вложенные столбцы, только для типа joined
+  width?: number;                                             // фиксированная ширина столбца в пикселях, по дефолту 100
+  columnType?: ColumnType;                                    // тип столбца
+  description?: string;                                       // описание столбца, показывается в подсказке при наведении на название столбца, если нет то покажет caption
+  editable?: boolean;                                         // является ли столбец редактируемый, по дефолту false
+  rendered?: boolean;                                         // рендерится ли столбец, по дефолту true
+  cssClass?: string;                                          // можно прокинуть css-класс на все ячейки в данном столбце
+  trueValue?: string;                                         // текстовое значение для true при columnType===boolean
+  falseValue?: string;                                        // текстовое значение для false при columnType===boolean
+  lookup?: ColumnLookupType<HandbookType>;                    // только для columnType===enum
+  excludeFromColumnChooser?: boolean;                         // скрывет столбец из выбора колонок
+  computing?: {                                               // функции для вычисляемых переменных
+    value?: (                                                 // функция для вычисления значений в столбце, должны возвращать строку
+      rowData: RowDataType,
+      column: Column<HandbookType, RowDataType, MetaType>,
+      formatEd: number,
+      formatRazryad: number,
+      meta?: MetaType,
+    ) => string;
+    editing?: (                                                // функция для вычисления возможности редактировать значение в конкретном столбце конкретной строки
+      rowData: TableRow<RowDataType>,                          // должна возвращать boolean
+      column: Column<HandbookType, RowDataType, MetaType>,
+      formatEd: number,
+      formatRazryad: number,
+      meta?: MetaType,
+    ) => boolean;
+    cssClass?: (                                                // функция вычисляет css-class для конкретной ячейки, должна возвращать строку
+      rowData: TableRow<RowDataType>,
+      column: Column<HandbookType, RowDataType, MetaType>,
+      formatEd: number,
+      formatRazryad: number,
+      meta?: MetaType,
+    ) => string;
+    grouping?: (                                                // функция вычисляет значение при группировке, должна возвращать число
+      rowData: TableRow<RowDataType>,
+      column: Column<HandbookType, RowDataType, MetaType>,
+    ) => number;
+  };
+  validation?: {                                                // параметры валидации значения в ячейке при редактировании
+    isReqired?: boolean;                                        // проверяет что значение не null | undefinded | ''
+    func?: (                                                    // кастомная функция для валидации
+      rowData: RowDataType,
+      column: Column<HandbookType, RowDataType, MetaType>,
+    ) => { isValid: boolean; message: string };                 // должна возвращать объект с полями isValid: boolean, message: string
+  };
+  collapsing?: {                                                // управление сворачивомастью для columnType=joined
+    collapsable?: boolean;                                      // можно ли сворачивать
+    collapseTarget?: CollapseTarget;                            // До какаого чайлда сворачивать
+  };
+  templating?: {                                                // кастомные темплейты для ячейки и ее редактора
+    cell?: Component;
+    editor?: Component;
+    cellHtml?: (                                                // функция возвращаюящая html для ячейки, используется если не указан шаблон cell или editor
+      rowData: RowDataType,
+      column: Column<HandbookType, RowDataType, MetaType>,
+      formatEd: number,
+      formatRazryad: number,
+      meta?: MetaType,
+    ) => string;
+  };
+  formating?: {                                                 // управление форматированием
+    disable: boolean;                                           // отключение форматирования
+  };
+  excludeFromTotals?: boolean;                                  // исключить данный столбец из расчета итогов полезно для id
+  meta?: any;                                                   // поле свободного назнчания, можно использовать для прокидывания методов и переменных в темплейты
+  defaultValue?: string | number | boolean;                     // значение по умолчанию при создании новой строки
+  allowNullForSelection?: boolean;                              // если true то добавляет в редактор для типа enum возможность выбрать значение (Пусто)
+  nestedValue?: boolean;                                        // флаг, показывающий что значение не на первом уровне объекта, например строка такого вида \{id: 1, customer: \{name: 'Name'\}\}\. Для вывода имени покупателя можно установить флаг nested:true, в поле name конфига указать 'customer.name'
+}
+```
+
+## Тип столбца
+
+```js
+type ColumnType =
+  | 'number' // для чисел
+  | 'string' // для строковых значений
+  | 'joined' // для столбцов у которых есть чайлды
+  | 'computed' // для столбцов, значения которых вычисляются внутри таблицы
+  | 'manage' // технический тип, для столбца элементы управления
+  | 'boolean' // для boolean
+  | 'enum' // для значений из справочника
+  | 'date' // для дат
+  | 'colspan' // технический, для виртуального рендерига
+  | 'datetime' // для даты-времени
+  | 'computedText'; // для вычисляемых текстовых значений (отличие от computed в типе фильтра);
+```
+
+## Цель для сворачивания
+
+```js
+type CollapseTarget =
+  | 'first' // первый элемент
+  | 'last' // последний элемент
+  | number; // конкретный элемент
+```
+
+## Totals
+
+Результурющая строка. Может быть как в шапке (headerTotals), так и внизу таблицы (totals)\
+
+```js
+export interface TableTotal<T = any> {
+  name: string; // название итока
+  function: (
+    // функция для подсчета, должны возвращать строку
+    column: TableColumn,
+    rows: Array<TableRow<T>>,
+    ed: number,
+    razryd: number,
+  ) => string;
+}
+```
+
+## CustomManageButtons
+
+Дополнительные кнопки для управления\
+
+```js
+export type CustomManageButton<T = any> = {
+  icon: string, // класс иконки
+  title: string, // хинт для иконки
+  fn: (row: TableRow<T>) => void, // фукция которая будет вызвана при клике
+  condition?: (row: TableRow<T>, isEditing?: boolean) => boolean, // условие показа иконки
+};
+```
+
+## Примеры
+
+https://svp-tnnc/ORVIS/command/-/blob/ui-develop/src/views/mainReport/ReportView.vue // пример использования таблицы\
+https://svp-tnnc/ORVIS/command/-/blob/ui-develop/src/views/mainReport/useMainReportColumns.composable.ts // пример простого конфига колонок\
+https://svp-tnnc/ORVIS/new-smk/-/blob/master/front/src/views/ActionManaging.vue // пример расширинного конфига колонок и использоватия таблицы
+
+<Stories />

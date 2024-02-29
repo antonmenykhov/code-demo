@@ -1,0 +1,104 @@
+@import './css/fontawesome.css';
+@import './css/solid.css';
+@import './css/brands.css';
+@import './base.css';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--tnnc-color-black);
+  font-weight: 500;
+}
+h1 {
+  font-size: 36px;
+  margin: 30px 0;
+}
+h2 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+h3 {
+  font-size: 18px;
+  margin: 15px 0;
+}
+h4 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+h5 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+h6 {
+  font-size: 12px;
+  margin: 5px 0;
+}
+mark {
+  background-color: var(--tnnc-color-red);
+  color: var(--color-white-contrast);
+  padding: 0 2px 2px 2px;
+}
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+  font-weight: 300;
+}
+q {
+  font-size: 24px;
+  line-height: 140%;
+  font-weight: 300;
+  text-align: justify;
+  margin: 0 10% 0 19%;
+  display: block;
+  position: relative;
+}
+q::after {
+  content: '';
+}
+q::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 8.5%;
+  background: url('./images/quotes.svg') no-repeat top center / contain;
+  aspect-ratio: 2/1;
+  left: -16%;
+}
+label {
+  font-size: 14px;
+  color: var(--tnnc-add-color-gray-3);
+  transition: all 0.2s;
+}
+a {
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--tnnc-color-blue);
+  transition: all 0.2s;
+  outline: none;
+  text-decoration: underline solid 1px;
+  text-decoration-color: var(--color-background);
+}
+a:visited {
+  color: var(--tnnc-add-color-gray-3);
+  text-decoration-color: var(--tnnc-add-color-gray-3);
+}
+a:hover {
+  filter: drop-shadow(0px 4px 4px rgba(75, 63, 215, 0.25));
+  color: var(--tnnc-color-blue);
+  text-decoration-color: var(--tnnc-color-blue);
+}
+a:active,
+a:focus {
+  filter: drop-shadow(0px 1px 2px rgba(75, 63, 215, 0.7));
+  text-decoration-color: var(--tnnc-color-blue);
+  color: var(--tnnc-color-blue);
+}
+
+input {
+  font-family: Ubuntu, sans-serif;
+}

@@ -1,0 +1,18 @@
+{{#if withStamp}}
+  <div
+    class='sign'
+    style='display: flex; gap: 20px; justify-content:flex-start; margin-top: -1cm; align-items:center;'
+  >
+    <div
+      class='manager-name'
+      style='font-weight: 600; font-size:16px'
+    >{{{company_manager}}}</div>
+    <div style='height: 4cm; width: 4cm;'>
+      <img
+        onerror="this.style.display='none'"
+        src='{{signSrc}}'
+        style='object-fit: contain; height: 100%; width:100%'
+      />
+    </div>
+  </div>
+{{/if}}
